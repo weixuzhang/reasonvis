@@ -1,0 +1,624 @@
+{
+  "338": {
+    "vis_query": {
+      "vis_part": "Visualize LINE",
+      "data_part": {
+        "sql_part": "SELECT weather.date, AVG(trip.duration) AS avg_duration FROM weather JOIN trip ON weather.zip_code = trip.zip_code GROUP BY weather.date ORDER BY weather.date ASC",
+        "binning": ""
+      },
+      "VQL": "Visualize LINE SELECT weather.date, AVG(trip.duration) AS avg_duration FROM weather JOIN trip ON weather.zip_code = trip.zip_code GROUP BY weather.date ORDER BY weather.date ASC"
+    },
+    "reasoning_level": "L3",
+    "chart": "Line",
+    "hardness": "Medium",
+    "db_id": "bike_1",
+    "vis_obj": {
+      "chart": "line",
+      "x_name": "date",
+      "y_name": "avg_duration",
+      "x_data": [
+        "2015-08-21",
+        "2015-08-22",
+        "2015-08-23"
+      ],
+      "y_data": [
+        389.33,
+        420.67,
+        398.5
+      ],
+      "classify": [],
+      "describe": "Average trip duration over time",
+      "sort": "asc"
+    },
+    "nl_queries": [
+      "What is the average duration of trips over time?",
+      "How does the average trip duration vary with temperature changes?",
+      "Is there a correlation between the average trip duration and weather conditions like humidity?",
+      "How do wind speed and visibility affect the average trip duration?"
+    ],
+    "irrelevant_tables": [
+      "status",
+      "station"
+    ],
+    "query_meta": [
+      {
+        "channel_specified": [
+          "x",
+          "y"
+        ]
+      },
+      {
+        "channel_specified": [
+          "x",
+          "y"
+        ]
+      },
+      {
+        "channel_specified": [
+          "x",
+          "y"
+        ]
+      },
+      {
+        "channel_specified": [
+          "x",
+          "y"
+        ]
+      }
+    ]
+  },
+  "1373": {
+    "vis_query": {
+      "vis_part": "Visualize BAR",
+      "data_part": {
+        "sql_part": "SELECT e.Company, SUM(e.Money_Requested) AS Total_Funding FROM entrepreneur e GROUP BY e.Company ORDER BY Total_Funding DESC",
+        "binning": ""
+      },
+      "VQL": "Visualize BAR SELECT e.Company, SUM(e.Money_Requested) AS Total_Funding FROM entrepreneur e GROUP BY e.Company ORDER BY Total_Funding DESC"
+    },
+    "reasoning_level": "L4",
+    "chart": "Bar",
+    "hardness": "Medium",
+    "db_id": "entrepreneur",
+    "vis_obj": {
+      "chart": "bar",
+      "x_name": "Company",
+      "y_name": "Total_Funding",
+      "x_data": [
+        "Umbrolly",
+        "Grails Ltd",
+        "Le Beanock"
+      ],
+      "y_data": [
+        150000.0,
+        120000.0,
+        54000.0
+      ],
+      "classify": [],
+      "describe": "Comparison of total funding requested by different companies",
+      "sort": "desc"
+    },
+    "nl_queries": [
+      "What is the total amount of money requested by each company?",
+      "Which company has requested the highest amount of funding?",
+      "How does the total funding requested by 'Grails Ltd' compare to 'Le Beanock'?",
+      "What is the overall distribution of funding requested among the companies?"
+    ],
+    "irrelevant_tables": [
+      "people"
+    ],
+    "query_meta": [
+      {
+        "channel_specified": [
+          "x",
+          "y"
+        ]
+      },
+      {
+        "channel_specified": [
+          "x",
+          "y"
+        ]
+      },
+      {
+        "channel_specified": [
+          "x",
+          "y"
+        ]
+      },
+      {
+        "channel_specified": [
+          "x",
+          "y"
+        ]
+      }
+    ]
+  },
+  "415": {
+    "vis_query": {
+      "vis_part": "Visualize BAR",
+      "data_part": {
+        "sql_part": "SELECT m.Maker, AVG(c.MPG) AS AvgMPG FROM cars_data c JOIN model_list m ON c.Id = m.ModelId GROUP BY m.Maker ORDER BY AvgMPG DESC",
+        "binning": ""
+      },
+      "VQL": "Visualize BAR SELECT m.Maker, AVG(c.MPG) AS AvgMPG FROM cars_data c JOIN model_list m ON c.Id = m.ModelId GROUP BY m.Maker ORDER BY AvgMPG DESC"
+    },
+    "reasoning_level": "L2",
+    "chart": "Bar",
+    "hardness": "Medium",
+    "db_id": "car_1",
+    "vis_obj": {
+      "chart": "bar",
+      "x_name": "Maker",
+      "y_name": "AvgMPG",
+      "x_data": [
+        "bmw",
+        "audi",
+        "amc"
+      ],
+      "y_data": [
+        18.0,
+        15.0,
+        18.0
+      ],
+      "classify": [],
+      "describe": "Average MPG of cars by maker",
+      "sort": "desc"
+    },
+    "nl_queries": [
+      "What is the average MPG of cars by each maker?",
+      "How does the average MPG of cars compare across different makers?",
+      "Which maker has the highest average MPG?",
+      "What is the difference in average MPG between the maker with the highest and lowest values?"
+    ],
+    "irrelevant_tables": [
+      "countries",
+      "continents",
+      "car_names",
+      "car_makers"
+    ],
+    "query_meta": [
+      {
+        "channel_specified": [
+          "x",
+          "y"
+        ]
+      },
+      {
+        "channel_specified": [
+          "x",
+          "y"
+        ]
+      },
+      {
+        "channel_specified": [
+          "x",
+          "y"
+        ]
+      },
+      {
+        "channel_specified": [
+          "x",
+          "y"
+        ]
+      }
+    ]
+  },
+  "54": {
+    "vis_query": {
+      "vis_part": "Visualize BAR",
+      "data_part": {
+        "sql_part": "SELECT AllergyType, COUNT(*) AS Count FROM Allergy_Type INNER JOIN Has_Allergy ON Allergy_Type.Allergy = Has_Allergy.Allergy GROUP BY AllergyType",
+        "binning": ""
+      },
+      "VQL": "Visualize BAR SELECT AllergyType, COUNT(*) AS Count FROM Allergy_Type INNER JOIN Has_Allergy ON Allergy_Type.Allergy = Has_Allergy.Allergy GROUP BY AllergyType"
+    },
+    "reasoning_level": "L3",
+    "chart": "Bar",
+    "hardness": "Medium",
+    "db_id": "allergy_1",
+    "vis_obj": {
+      "chart": "bar",
+      "x_name": "AllergyType",
+      "y_name": "COUNT(*)",
+      "x_data": [
+        "food"
+      ],
+      "y_data": [
+        3
+      ],
+      "classify": [],
+      "describe": "Count of allergies by type",
+      "sort": "desc"
+    },
+    "nl_queries": [
+      "What is the distribution of allergies by type?",
+      "How many students have food allergies?",
+      "Which students have food allergies and what cities are they from?",
+      "What is the distribution of food allergies among students grouped by city?"
+    ],
+    "irrelevant_tables": [],
+    "query_meta": [
+      {
+        "channel_specified": [
+          "x",
+          "y"
+        ]
+      },
+      {
+        "channel_specified": [
+          "x",
+          "y"
+        ]
+      },
+      {
+        "channel_specified": [
+          "x",
+          "y"
+        ]
+      },
+      {
+        "channel_specified": [
+          "x",
+          "y"
+        ]
+      }
+    ]
+  },
+  "1460": {
+    "vis_query": {
+      "vis_part": "Visualize STACKED BAR",
+      "data_part": {
+        "sql_part": "SELECT r.year, d.nationality, SUM(ds.points) AS total_points FROM races r JOIN driverStandings ds ON r.raceId = ds.raceId JOIN drivers d ON ds.driverId = d.driverId GROUP BY r.year, d.nationality ORDER BY r.year, total_points DESC",
+        "binning": ""
+      },
+      "VQL": "Visualize STACKED BAR SELECT r.year, d.nationality, SUM(ds.points) AS total_points FROM races r JOIN driverStandings ds ON r.raceId = ds.raceId JOIN drivers d ON ds.driverId = d.driverId GROUP BY r.year, d.nationality ORDER BY r.year, total_points DESC"
+    },
+    "reasoning_level": "L3",
+    "chart": "Stacked bar",
+    "hardness": "Medium",
+    "db_id": "formula_1",
+    "vis_obj": {
+      "chart": "stacked bar",
+      "x_name": "year",
+      "y_name": "nationality",
+      "x_data": [
+        "2009"
+      ],
+      "y_data": [
+        "18.0"
+      ],
+      "classify": [
+        "nationality"
+      ],
+      "describe": "Total points scored by drivers per year, grouped by nationality",
+      "sort": "desc"
+    },
+    "nl_queries": [
+      "How did the total points scored by drivers change over the years, grouped by their nationality?",
+      "Which nationality of drivers scored the highest points in the most recent year?",
+      "How did the performance of drivers from different nationalities vary in the year 2009?",
+      "What trends can be observed in the points scored by drivers from different nationalities over the years?"
+    ],
+    "irrelevant_tables": [
+      "constructorResults",
+      "status",
+      "seasons",
+      "constructors",
+      "circuits",
+      "results",
+      "constructorStandings",
+      "pitStops",
+      "qualifying",
+      "lapTimes"
+    ],
+    "query_meta": [
+      {
+        "channel_specified": [
+          "x",
+          "y"
+        ]
+      },
+      {
+        "channel_specified": [
+          "x",
+          "y"
+        ]
+      },
+      {
+        "channel_specified": [
+          "x",
+          "y"
+        ]
+      },
+      {
+        "channel_specified": [
+          "x",
+          "y"
+        ]
+      }
+    ]
+  },
+  "1227": {
+    "vis_query": {
+      "vis_part": "Visualize STACKED BAR",
+      "data_part": {
+        "sql_part": "SELECT dorm_name, gender, COUNT(stuid) AS student_count FROM Dorm JOIN Lives_in ON Dorm.dormid = Lives_in.dormid JOIN Student ON Lives_in.stuid = Student.StuID GROUP BY dorm_name, gender",
+        "binning": ""
+      },
+      "VQL": "Visualize STACKED BAR SELECT dorm_name, gender, COUNT(stuid) AS student_count FROM Dorm JOIN Lives_in ON Dorm.dormid = Lives_in.dormid JOIN Student ON Lives_in.stuid = Student.StuID GROUP BY dorm_name, gender"
+    },
+    "reasoning_level": "L4",
+    "chart": "Stacked bar",
+    "hardness": "Medium",
+    "db_id": "dorm_1",
+    "vis_obj": {
+      "chart": "stacked bar",
+      "x_name": "dorm_name",
+      "y_name": "gender",
+      "x_data": [
+        "Smith Hall",
+        "Bud Jones Hall",
+        "Fawlty Towers"
+      ],
+      "y_data": [
+        1,
+        1,
+        0
+      ],
+      "classify": [
+        "gender"
+      ],
+      "describe": "Number of students living in each dorm classified by gender",
+      "sort": null
+    },
+    "nl_queries": [
+      "How many students live in each dorm, classified by gender?",
+      "What is the total student capacity for each dorm?",
+      "Compare the number of students living in each dorm to the dorm's student capacity.",
+      "Which dorms are over- or under-utilized based on the number of students relative to capacity?"
+    ],
+    "irrelevant_tables": [
+      "Has_amenity",
+      "Dorm_amenity"
+    ],
+    "query_meta": [
+      {
+        "channel_specified": [
+          "x",
+          "y"
+        ]
+      },
+      {
+        "channel_specified": [
+          "x",
+          "y"
+        ]
+      },
+      {
+        "channel_specified": [
+          "x",
+          "y"
+        ]
+      },
+      {
+        "channel_specified": [
+          "x",
+          "y"
+        ]
+      }
+    ]
+  },
+  "2963": {
+    "vis_query": {
+      "vis_part": "Visualize BAR",
+      "data_part": {
+        "sql_part": "SELECT o.organisation_details AS organisation, SUM(g.grant_amount) AS total_grant_amount FROM Organisations o JOIN Grants g ON o.organisation_id = g.organisation_id GROUP BY o.organisation_details ORDER BY total_grant_amount DESC",
+        "binning": ""
+      },
+      "VQL": "Visualize BAR SELECT o.organisation_details AS organisation, SUM(g.grant_amount) AS total_grant_amount FROM Organisations o JOIN Grants g ON o.organisation_id = g.organisation_id GROUP BY o.organisation_details ORDER BY total_grant_amount DESC"
+    },
+    "reasoning_level": "L4",
+    "chart": "Bar",
+    "hardness": "Medium",
+    "db_id": "tracking_grants_for_research",
+    "vis_obj": {
+      "chart": "bar",
+      "x_name": "organisation",
+      "y_name": "total_grant_amount",
+      "x_data": [
+        "et",
+        "eius",
+        "impedit"
+      ],
+      "y_data": [
+        4515948,
+        4094.542,
+        281.2446
+      ],
+      "classify": [],
+      "describe": "Sum of grant amounts received by each organization",
+      "sort": "desc"
+    },
+    "nl_queries": [
+      "What is the total grant amount received by each organization?",
+      "Which organization received the highest grant amount?",
+      "How do the total grant amounts received by different organizations compare?",
+      "What is the trend in grant distribution among organizations with the highest and lowest funding?"
+    ],
+    "irrelevant_tables": [
+      "Project_Outcomes",
+      "Projects",
+      "Document_Types",
+      "Research_Outcomes",
+      "Staff_Roles",
+      "Tasks",
+      "Documents",
+      "Research_Staff",
+      "Organisation_Types"
+    ],
+    "query_meta": [
+      {
+        "channel_specified": [
+          "x",
+          "y"
+        ]
+      },
+      {
+        "channel_specified": [
+          "x",
+          "y"
+        ]
+      },
+      {
+        "channel_specified": [
+          "x",
+          "y"
+        ]
+      },
+      {
+        "channel_specified": [
+          "x",
+          "y"
+        ]
+      }
+    ]
+  },
+  "21": {
+    "vis_query": {
+      "vis_part": "Visualize BAR",
+      "data_part": {
+        "sql_part": "SELECT s.Major, COUNT(p.stuid) AS student_count FROM Student s JOIN Participates_in p ON s.StuID = p.stuid GROUP BY s.Major",
+        "binning": ""
+      },
+      "VQL": "Visualize BAR SELECT s.Major, COUNT(p.stuid) AS student_count FROM Student s JOIN Participates_in p ON s.StuID = p.stuid GROUP BY s.Major"
+    },
+    "reasoning_level": "L2",
+    "chart": "Bar",
+    "hardness": "Medium",
+    "db_id": "activity_1",
+    "vis_obj": {
+      "chart": "bar",
+      "x_name": "Major",
+      "y_name": "student_count",
+      "x_data": [
+        "600"
+      ],
+      "y_data": [
+        3
+      ],
+      "classify": [],
+      "describe": "Count of students participating in activities, grouped by their major",
+      "sort": null
+    },
+    "nl_queries": [
+      "How many students are participating in activities, grouped by their major?",
+      "Which activities have the highest participation from students in Major 600?",
+      "Which faculty members are participating in activities, and how many students are involved in those activities?",
+      "What is the distribution of faculty members participating in activities across different buildings?"
+    ],
+    "irrelevant_tables": [
+      "Activity",
+      "Faculty_Participates_in",
+      "Participates_in",
+      "Student"
+    ],
+    "query_meta": [
+      {
+        "channel_specified": [
+          "x",
+          "y"
+        ]
+      },
+      {
+        "channel_specified": [
+          "x",
+          "y"
+        ]
+      },
+      {
+        "channel_specified": [
+          "x",
+          "y"
+        ]
+      },
+      {
+        "channel_specified": [
+          "x",
+          "y"
+        ]
+      }
+    ]
+  },
+  "1622": {
+    "vis_query": {
+      "vis_part": "Visualize BAR",
+      "data_part": {
+        "sql_part": "SELECT e.JOB_ID, j.JOB_TITLE, AVG(e.SALARY) AS AVG_SALARY FROM employees e JOIN jobs j ON e.JOB_ID = j.JOB_ID GROUP BY e.JOB_ID, j.JOB_TITLE ORDER BY AVG_SALARY DESC",
+        "binning": ""
+      },
+      "VQL": "Visualize BAR SELECT e.JOB_ID, j.JOB_TITLE, AVG(e.SALARY) AS AVG_SALARY FROM employees e JOIN jobs j ON e.JOB_ID = j.JOB_ID GROUP BY e.JOB_ID, j.JOB_TITLE ORDER BY AVG_SALARY DESC"
+    },
+    "reasoning_level": "L4",
+    "chart": "Bar",
+    "hardness": "Medium",
+    "db_id": "hr_1",
+    "vis_obj": {
+      "chart": "bar",
+      "x_name": "JOB_ID",
+      "y_name": "JOB_TITLE",
+      "x_data": [
+        "President",
+        "Administration Vice President",
+        "Administration Assistant"
+      ],
+      "y_data": [
+        24000,
+        17000,
+        3000
+      ],
+      "classify": [],
+      "describe": "Average salary per job title",
+      "sort": "desc"
+    },
+    "nl_queries": [
+      "What is the average salary for each job title?",
+      "Which job titles have the highest average salaries?",
+      "How does the average salary for 'Administration Vice President' compare to other job titles?",
+      "What is the salary distribution for jobs with average salaries above 5000?"
+    ],
+    "irrelevant_tables": [
+      "countries",
+      "regions",
+      "job_history",
+      "departments",
+      "locations"
+    ],
+    "query_meta": [
+      {
+        "channel_specified": [
+          "x",
+          "y"
+        ]
+      },
+      {
+        "channel_specified": [
+          "x",
+          "y"
+        ]
+      },
+      {
+        "channel_specified": [
+          "x",
+          "y"
+        ]
+      },
+      {
+        "channel_specified": [
+          "x",
+          "y"
+        ]
+      }
+    ]
+  }
+}
